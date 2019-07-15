@@ -1,0 +1,72 @@
+\usepackage{amsmath, amssymb, amsthm, enumitem, xcolor}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{parskip}
+\usepackage{marginnote, mparhack, marginfix} % notes in margin
+\usepackage[colorlinks]{hyperref}
+% \usepackage[hidelinks]{hyperref}
+
+\pagestyle{fancy}
+\lhead{}
+\rhead{\thepage}
+% \setlength{\parindent}{0pt}
+
+% Statistics 
+\newcommand{\E}{\mathbb{E}} 
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Bern}{\operatorname{Bern}}
+\newcommand{\Bin}{\operatorname{Bin}}
+\newcommand{\Pois}{\operatorname{Pois}}
+\newcommand{\Geom}{\operatorname{Geom}}
+\newcommand{\FS}{\operatorname{FS}}
+\newcommand{\HGeom}{\operatorname{HGeom}}
+\newcommand{\NBin}{\operatorname{NBin}}
+\newcommand{\Beta}{\operatorname{Beta}}
+\newcommand{\Gam}{\operatorname{Gamma}}
+\newcommand{\Logistic}{\operatorname{Logistic}}
+\newcommand{\Laplace}{\operatorname{Laplace}}
+\newcommand{\Norm}{\mathcal{N}}
+\newcommand{\Expo}{\operatorname{Expo}}
+\newcommand{\Unif}{\operatorname{Unif}}
+\newcommand{\SD}{\operatorname{SD}}
+\newcommand{\var}{\operatorname{Var}}
+\newcommand{\cov}{\operatorname{Cov}}
+\newcommand{\cor}{\operatorname{Corr}}
+\newcommand{\indep}{\raisebox{0.05em}{\rotatebox[origin=c]{90}{$\models$}}}
+
+% Convergence 
+\newcommand{\pto}{\overset{p}{\longrightarrow}} 
+\newcommand{\dto}{\overset{d}{\longrightarrow}} 
+\newcommand{\asto}{\overset{a.s.}{\longrightarrow}} 
+\newcommand{\iid}{\overset{\mathrm{i.i.d}}{\sim}}
+
+% Math
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\pardiv}[2][]{\frac{\partial{#1}}{\partial{#2}}} % partial derivative
+\newcommand{\hat}{\widehat}
+\newcommand{\bar}{\overline}}
+\newcommand{\innerprod}[1]{\left\langle {#1} \right \rangle} % inner product
+\newcommand{\paren}[1]{\left({#1})} % nice parentheses
+\newcommand{\abs}[1]{\left| {#1} \right|}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+% Miscellaneous
+\newcommand{\np}{\newpage}
+\newcommand{\noin}{\noindent}
+
+% General 
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
