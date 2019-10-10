@@ -1,4 +1,4 @@
-\usepackage{amsmath, amssymb, amsthm, enumitem, xcolor}
+\usepackage{amsmath, amssymb, amsthm, amsfonts, enumitem, xcolor}
 \usepackage{graphicx}
 \usepackage{geometry}
 \usepackage{fancyhdr}
@@ -11,10 +11,10 @@
 \pagestyle{fancy}
 \lhead{}
 \rhead{\thepage}
-% \setlength{\parindent}{0pt}
+\setlength{\parindent}{0pt}
 
-% Statistics 
-\newcommand{\E}{\mathbb{E}} 
+% Statistics
+\newcommand{\E}{\mathbb{E}}
 \renewcommand{\P}{\mathbb{P}}
 \newcommand{\Bern}{\operatorname{Bern}}
 \newcommand{\Bin}{\operatorname{Bin}}
@@ -27,24 +27,25 @@
 \newcommand{\Gam}{\operatorname{Gamma}}
 \newcommand{\Logistic}{\operatorname{Logistic}}
 \newcommand{\Laplace}{\operatorname{Laplace}}
-\newcommand{\Norm}{\mathcal{N}}
+\newcommand{\N}{\mathcal{N}}
 \newcommand{\Expo}{\operatorname{Expo}}
 \newcommand{\Unif}{\operatorname{Unif}}
 \newcommand{\SD}{\operatorname{SD}}
 \newcommand{\var}{\operatorname{Var}}
 \newcommand{\cov}{\operatorname{Cov}}
 \newcommand{\cor}{\operatorname{Corr}}
-\newcommand{\indep}{\raisebox{0.05em}{\rotatebox[origin=c]{90}{$\models$}}}
+\newcommand{\ind}{\perp \!\!\! \perp}
+% \newcommand{\indep}{\raisebox{0.05em}{\rotatebox[origin=c]{90}{$\models$}}}
 
-% Convergence 
-\newcommand{\pto}{\overset{p}{\longrightarrow}} 
-\newcommand{\dto}{\overset{d}{\longrightarrow}} 
-\newcommand{\asto}{\overset{a.s.}{\longrightarrow}} 
+% Convergence
+\newcommand{\pto}{\overset{p}{\longrightarrow}}
+\newcommand{\dto}{\overset{d}{\longrightarrow}}
+\newcommand{\asto}{\overset{a.s.}{\longrightarrow}}
 \newcommand{\iid}{\overset{\mathrm{i.i.d}}{\sim}}
 
 % Math
 \newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
+% \newcommand{\N}{\mathbb{N}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\pardiv}[2][]{\frac{\partial{#1}}{\partial{#2}}} % partial derivative
@@ -54,18 +55,25 @@
 \newcommand{\paren}[1]{\left({#1})} % nice parentheses
 \newcommand{\abs}[1]{\left| {#1} \right|}
 \renewcommand\qedsymbol{$\blacksquare$}
+\newcommand{\lv}{\langle}
+\newcommand{\rv}{\rangle}
 
 % Miscellaneous
 \newcommand{\np}{\newpage}
 \newcommand{\noin}{\noindent}
 
-% General 
+\newcommand{\prob}[1]{\textbf{#1:} \\}
+\newcommand{\sol}{\textbf{Solution} \\}
+
+% General
 \theoremstyle{definition}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{defn}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{lemma}[theorem]{Lemma}
+
+\renewcommand*{\proofname}{Solution}
 
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
