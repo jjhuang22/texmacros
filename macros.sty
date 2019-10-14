@@ -1,6 +1,12 @@
-\usepackage{amsmath, amssymb, amsthm, amsfonts, enumitem, xcolor}
+\usepackage{amsmath, amssymb, amsthm, amsfonts}
+\usepackage{enumerate, enumitem}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{mathrsfs}
+\usepackage[margin=1in]{geometry}
+\geometry{letterpaper}
 \usepackage{graphicx}
-\usepackage{geometry}
+\usepackage{xcolor}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{parskip}
@@ -9,8 +15,8 @@
 % \usepackage[hidelinks]{hyperref}
 
 \pagestyle{fancy}
-\lhead{}
-\rhead{\thepage}
+\lhead{Name}
+\rhead{Class Name}
 \setlength{\parindent}{0pt}
 
 % Statistics
@@ -44,26 +50,34 @@
 \newcommand{\iid}{\overset{\mathrm{i.i.d}}{\sim}}
 
 % Math
-\newcommand{\R}{\mathbb{R}}
-% \newcommand{\N}{\mathbb{N}}
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\inv}{^{-1}}
 \newcommand{\pardiv}[2][]{\frac{\partial{#1}}{\partial{#2}}} % partial derivative
 \newcommand{\hat}{\widehat}
 \newcommand{\bar}{\overline}}
 \newcommand{\innerprod}[1]{\left\langle {#1} \right \rangle} % inner product
-\newcommand{\paren}[1]{\left({#1})} % nice parentheses
+\newcommand{\paren}[1]{\left({#1}\right)} % nice parentheses
 \newcommand{\abs}[1]{\left| {#1} \right|}
-\renewcommand\qedsymbol{$\blacksquare$}
+\renewcommand{\qedsymbol}{$\blacksquare$}
 \newcommand{\lv}{\langle}
 \newcommand{\rv}{\rangle}
+\newcommand{\Aut}{\textrm{Aut}}
+\newcommand{\normal}{\trianglelefteq}
+\DeclareMathOperator*{\lcm}{lcm}
+\DeclareMathOperator*{\argmin}{arg min}
+\DeclareMathOperator*{\argmax}{arg max}
 
 % Miscellaneous
 \newcommand{\np}{\newpage}
 \newcommand{\noin}{\noindent}
 
 \newcommand{\prob}[1]{\textbf{#1:} \\}
-\newcommand{\sol}{\textbf{Solution} \\}
+\newcommand{\sol}{\textit{Solution} \\}
+
 
 % General
 \theoremstyle{definition}
@@ -72,9 +86,36 @@
 \newtheorem{example}[theorem]{Example}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{lemma}[theorem]{Lemma}
-
-\renewcommand*{\proofname}{Solution}
-
+\newtheorem{property}[theorem]{Property}
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
+\renewcommand\qedsymbol{$\blacksquare$}
+\renewcommand*{\proofname}{Solution}
 
+\newcommand{\hwtitle}[2]{
+    \centerline{\large{\textbf{#1}}}
+    \vspace{3px}
+    \centerline{#2}
+    \vspace{6px}
+}
+
+\newcommand{\notes}[5]{
+  \noindent
+  \begin{center}
+  \framebox{
+    \vbox{
+        \hbox to 6.3in {#1
+        \hfill #2}
+
+        \vspace{4mm}
+
+        \hbox to 6.3in {\hfill {\large {\bf #5}} \hfill}
+
+        \vspace{4mm}
+
+        \hbox to 6.3in { {\it #3} \hfill {\it #4} }
+    }
+  }
+  \end{center}
+  \vspace*{-5mm}
+}
