@@ -1,0 +1,228 @@
+\usepackage{amsmath, amssymb, amsthm, amsfonts}
+\usepackage{enumerate, enumitem}
+\usepackage{multicol}
+\usepackage{mathrsfs}
+\usepackage[margin=1in]{geometry}
+\geometry{letterpaper}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{changepage}
+\usepackage{lastpage}
+\usepackage{parskip}
+\usepackage{mdframed}
+\usepackage{xparse}
+\usepackage{marginnote, mparhack, marginfix} % notes in margin
+\usepackage[colorlinks]{hyperref}
+\usepackage{sansmathfonts}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+% \usepackage[hidelinks]{hyperref}
+
+\pagestyle{fancy}
+\lhead{\name}
+\rhead{\class}
+\setlength{\parindent}{0pt}
+
+% Statistics
+\newcommand{\E}{\mathbb{E}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Bern}{\operatorname{Bern}}
+\newcommand{\Bin}{\operatorname{Bin}}
+\newcommand{\Pois}{\operatorname{Pois}}
+\newcommand{\Geom}{\operatorname{Geom}}
+\newcommand{\FS}{\operatorname{FS}}
+\newcommand{\HGeom}{\operatorname{HGeom}}
+\newcommand{\NBin}{\operatorname{NBin}}
+\newcommand{\Beta}{\operatorname{Beta}}
+\newcommand{\Gam}{\operatorname{Gamma}}
+\newcommand{\Logistic}{\operatorname{Logistic}}
+\newcommand{\Laplace}{\operatorname{Laplace}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\Expo}{\operatorname{Expo}}
+\newcommand{\Unif}{\operatorname{Unif}}
+\newcommand{\SD}{\operatorname{SD}}
+\newcommand{\var}{\operatorname{Var}}
+\newcommand{\cov}{\operatorname{Cov}}
+\newcommand{\cor}{\operatorname{Corr}}
+\newcommand{\ind}{\perp \!\!\! \perp}
+% \newcommand{\indep}{\raisebox{0.05em}{\rotatebox[origin=c]{90}{$\models$}}}
+
+% Convergence
+\newcommand{\pto}{\overset{p}{\longrightarrow}}
+\newcommand{\dto}{\overset{D}{\longrightarrow}}
+\newcommand{\lto}{\overset{\mathcal{L}}{\longrightarrow}}
+\newcommand{\asto}{\overset{a.s.}{\longrightarrow}}
+\newcommand{\iid}{\overset{\mathrm{i.i.d}}{\sim}}
+
+% Math
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\providecommand{\eps}{\varepsilon}
+\providecommand{\inv}{^{-1}}
+\newcommand{\pardiv}[2][]{\frac{\partial{#1}}{\partial{#2}}} % partial derivative
+\newcommand{\hat}{\widehat}
+\newcommand{\bar}{\overline}}
+\newcommand{\innerprod}[1]{\left\langle {#1} \right \rangle} % inner product
+\newcommand{\paren}[1]{\left({#1}\right)} % nice parentheses
+\newcommand{\abs}[1]{\left| {#1} \right|}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\newcommand{\lv}{\langle}
+\newcommand{\rv}{\rangle}
+\newcommand{\Aut}{\textrm{Aut}}
+\newcommand{\normal}{\trianglelefteq}
+\DeclareMathOperator*{\lcm}{lcm}
+\DeclareMathOperator*{\argmin}{arg min}
+\DeclareMathOperator*{\argmax}{arg max}
+
+% Miscellaneous
+\newcommand{\np}{\newpage}
+\newcommand{\noin}{\noindent}
+
+\newcommand{\prob}[1]{\textbf{#1:} \\}
+\newcommand{\sol}{\textit{Solution} \\}
+
+% Styles 
+\newtheoremstyle{bluebox}%
+{3pt}% Space above
+{3pt}% Space below 
+{}% Body font
+{}% Indent amount
+{\bfseries\color{blue}}% Theorem head font
+{}% Punctuation after theorem head
+{.5em}% Space after theorem head
+{}% Theorem head spec (can be left empty, meaning ‘normal’)
+
+\newtheoremstyle{purplebox}%
+{3pt}% Space above
+{3pt}% Space below 
+{}% Body font
+{}% Indent amount
+{\bfseries\color{violet}}% Theorem head font
+{}% Punctuation after theorem head
+{.5em}% Space after theorem head
+{}% Theorem head spec (can be left empty, meaning ‘normal’)
+
+\definecolor{lightblue}{RGB}{230, 242, 255}
+\definecolor{lightpurple}{RGB}{245, 235, 255}
+
+% General
+\theoremstyle{bluebox}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{property}[theorem]{Property}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\theoremstyle{purplebox}
+\newtheorem{example}[theorem]{Example}
+\renewcommand\qedsymbol{$\blacksquare$}
+\renewcommand*{\proofname}{Proof}
+
+
+\mdfdefinestyle{theoremstyle}{
+    linecolor = blue,
+    linewidth = 1.2pt,
+    innertopmargin = 7pt,
+    innerbottommargin = 10pt,
+    backgroundcolor = lightblue
+}
+
+\newenvironment{theo}[1]
+{
+    \vspace{1em}
+    \begin{mdframed}[style=theoremstyle]
+    \begin{theorem}{\color{blue}{#1}} \ \\}
+    {\end{theorem}
+    \end{mdframed}
+    \vspace{0.5em}
+}
+
+\newenvironment{defn}[1]
+{
+    \vspace{1em}
+    \begin{mdframed}[style=theoremstyle]
+    \begin{definition}{\color{blue}{#1}} \ \\}
+    {\end{definition}
+    \end{mdframed}
+    \vspace{0.5em}
+}
+
+\newenvironment{corol}[1]
+{
+    \vspace{1em}
+    \begin{mdframed}[style=theoremstyle]
+    \begin{corollary}{\color{blue}{#1}} \ \\}
+    {\end{corollary}
+    \end{mdframed}
+    \vspace{0.5em}
+}
+
+\newenvironment{lem}[1]
+{
+    \vspace{1em}
+    \begin{mdframed}[style=theoremstyle]
+    \begin{lemma}{\color{blue}{#1}} \ \\}
+    {\end{lemma}
+    \end{mdframed}
+    \vspace{0.5em}
+}
+
+\newenvironment{prop}[1]
+{
+    \vspace{1em}
+    \begin{mdframed}[style=theoremstyle]
+    \begin{property}{\color{blue}{#1}} \ \\}
+    {\end{property}
+    \end{mdframed}
+    \vspace{0.5em}
+}
+
+\mdfdefinestyle{examplestyle}{
+    linecolor = violet,
+    linewidth = 1.2pt,
+    innertopmargin = 7pt,
+    innerbottommargin = 10pt,
+    backgroundcolor = lightpurple
+}
+
+\newenvironment{ex}[1]
+{
+    \vspace{1em}
+    \begin{mdframed}[style=examplestyle]
+    \begin{example}{\color{violet}{#1}} \ \\}
+    {\end{example}
+    \end{mdframed}
+    \vspace{0.5em}
+}
+
+\newcommand{\hwtitle}[2]{
+    \centerline{\large{\textbf{#1}}}
+    \vspace{3px}
+    \centerline{#2}
+    \vspace{6px}
+}
+
+\newcommand{\notes}[5]{
+  \noindent
+  \begin{center}
+  \framebox{
+    \vbox{
+        \hbox to 6.3in {#1
+        \hfill #2}
+
+        \vspace{4mm}
+
+        \hbox to 6.3in {\hfill {\large {\bf #5}} \hfill}
+
+        \vspace{4mm}
+
+        \hbox to 6.3in { {\it #3} \hfill {\it #4} }
+    }
+  }
+  \end{center}
+  \vspace*{-5mm}
+}
