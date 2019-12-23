@@ -11,15 +11,20 @@
 \usepackage{lastpage}
 \usepackage{parskip}
 \usepackage{marginnote, mparhack, marginfix} % notes in margin
-\usepackage[colorlinks]{hyperref}
 % \usepackage[hidelinks]{hyperref}
+\usepackage{pdfpages}
+\usepackage[pdftex,
+            pdfauthor={Jonathan},
+            pdftitle={STAT 110 Section \sectionnumber: \sectiontitle},
+            pdfkeywords={STAT 110, \sectiontitle},
+            pdfcreator={pdflatex}]{hyperref}
+\usepackage{color}
+\usepackage{palatino}
+\usepackage{tikz}
+\usepackage[framemethod=TikZ]{mdframed}
 
-\pagestyle{fancy}
-\lhead{\name}
-\rhead{\class}
 \setlength{\parindent}{0pt}
 
-% Statistics
 \newcommand{\E}{\mathbb{E}}
 \renewcommand{\P}{\mathbb{P}}
 \newcommand{\Bern}{\operatorname{Bern}}
@@ -41,12 +46,10 @@
 \newcommand{\cov}{\operatorname{Cov}}
 \newcommand{\cor}{\operatorname{Corr}}
 \newcommand{\ind}{\perp \!\!\! \perp}
-% \newcommand{\indep}{\raisebox{0.05em}{\rotatebox[origin=c]{90}{$\models$}}}
 
 % Convergence
 \newcommand{\pto}{\overset{p}{\longrightarrow}}
-\newcommand{\dto}{\overset{D}{\longrightarrow}}
-\newcommand{\lto}{\overset{\mathcal{L}}{\longrightarrow}}
+\newcommand{\dto}{\overset{d}{\longrightarrow}}
 \newcommand{\asto}{\overset{a.s.}{\longrightarrow}}
 \newcommand{\iid}{\overset{\mathrm{i.i.d}}{\sim}}
 
@@ -79,7 +82,6 @@
 \newcommand{\prob}[1]{\textbf{#1:} \\}
 \newcommand{\sol}{\textit{Solution} \\}
 
-
 % General
 \theoremstyle{definition}
 \newtheorem{theorem}{Theorem}[section]
@@ -93,14 +95,7 @@
 \renewcommand\qedsymbol{$\blacksquare$}
 \renewcommand*{\proofname}{Solution}
 
-\newcommand{\hwtitle}[2]{
-    \centerline{\large{\textbf{#1}}}
-    \vspace{3px}
-    \centerline{#2}
-    \vspace{6px}
-}
-
-\newcommand{\notes}[5]{
+\newcommand{\notes}[4]{
   \noindent
   \begin{center}
   \framebox{
@@ -110,13 +105,63 @@
 
         \vspace{4mm}
 
-        \hbox to 6.3in {\hfill {\large {\bf #5}} \hfill}
+        \hbox to 6.3in {\hfill {\large {\bf #4}} \hfill}
 
         \vspace{4mm}
 
-        \hbox to 6.3in { {\it #3} \hfill {\it #4} }
+        \hbox to 6.3in { {\it #3} \hfill }
     }
   }
   \end{center}
   \vspace*{-5mm}
 }
+
+\newcommand{\header}{
+    \notes
+    {Class Name}
+    {Section \sectionnumber \ifthenelse{\boolean{showanswers}}{ Solutions}{}}
+    {\small{Jonathan Huang (\url{jonathanhuang@college.harvard.edu})}}
+    {\sectiontitle}
+    \blfootnote{Footer.}
+}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\definecolor{veryLightGray}{rgb}{0.87,0.87,0.87}
+
+\mdfdefinestyle{solutionstyle}{
+    linecolor=black,
+    linewidth=2pt,
+    roundcorner=10pt,
+    backgroundcolor=veryLightGray,
+    innerbottommargin=10pt,
+}
+
+\newenvironment{solution}
+    {
+    \begin{mdframed}[style=solutionstyle, frametitle={Solution.}]
+    }
+    {
+    \end{mdframed}
+    }
+
+\newcommand{\hide}[1]{
+    \ifthenelse{\boolean{showanswers}}
+    {
+        \vspace{\baselineskip}
+        \begin{solution}
+        #1
+        \end{solution}
+        \vspace{\baselineskip}
+    }
+    {
+        \vspace{1.5in}
+    }
+}
+
+\newboolean{showanswers}
