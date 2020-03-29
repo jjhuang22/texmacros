@@ -1,22 +1,26 @@
 \usepackage{amsmath, amssymb, amsthm, amsfonts}
-\usepackage{enumerate}
-% \usepackage{enumitem}
-\usepackage{xcolor}
+\usepackage{enumerate, enumitem}
 \usepackage{multicol}
 \usepackage{mathrsfs}
 \usepackage[margin=1in]{geometry}
 \geometry{letterpaper}
 \usepackage{graphicx}
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{fancyhdr}
+\usepackage{changepage}
 \usepackage{lastpage}
 \usepackage{parskip}
+\usepackage{mdframed}
+\usepackage{xparse}
 \usepackage{marginnote, mparhack, marginfix} % notes in margin
 \usepackage[colorlinks]{hyperref}
+% \usepackage{sansmathfonts}
+% \usepackage{helvet}
+% \renewcommand{\familydefault}{\sfdefault}
 % \usepackage[hidelinks]{hyperref}
 
 \pagestyle{fancy}
-% \lhead{\name}
+\lhead{\name}
 \rhead{\class}
 \setlength{\parindent}{0pt}
 
@@ -78,21 +82,122 @@
 \newcommand{\noin}{\noindent}
 
 \newcommand{\prob}[1]{\textbf{#1:} \\}
-\newcommand{\sol}{\textit{Solution} \\ \vspace{-3ex}}
+\newcommand{\sol}{\textit{Solution} \\}
 
+% Styles 
+\newtheoremstyle{bluebox}%
+{3pt}% Space above
+{3pt}% Space below 
+{}% Body font
+{}% Indent amount
+{\bfseries\color{blue}}% Theorem head font
+{}% Punctuation after theorem head
+{.5em}% Space after theorem head
+{}% Theorem head spec (can be left empty, meaning ‘normal’)
+
+\newtheoremstyle{purplebox}%
+{3pt}% Space above
+{3pt}% Space below 
+{}% Body font
+{}% Indent amount
+{\bfseries\color{violet}}% Theorem head font
+{}% Punctuation after theorem head
+{.5em}% Space after theorem head
+{}% Theorem head spec (can be left empty, meaning ‘normal’)
+
+\definecolor{lightblue}{RGB}{230, 242, 255}
+\definecolor{lightpurple}{RGB}{245, 235, 255}
 
 % General
-\theoremstyle{definition}
+\theoremstyle{bluebox}
 \newtheorem{theorem}{Theorem}[section]
-\newtheorem{defn}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
+\newtheorem{definition}[theorem]{Definition}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{property}[theorem]{Property}
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
+\theoremstyle{purplebox}
+\newtheorem{example}[theorem]{Example}
 \renewcommand\qedsymbol{$\blacksquare$}
-\renewcommand*{\proofname}{Solution}
+\renewcommand*{\proofname}{Proof}
+
+
+\mdfdefinestyle{theoremstyle}{
+    linecolor = blue,
+    linewidth = 1.2pt,
+    innertopmargin = 7pt,
+    innerbottommargin = 10pt,
+    backgroundcolor = lightblue
+}
+
+\newenvironment{theo}[1]
+{
+    \vspace{1em}
+    \begin{mdframed}[style=theoremstyle]
+    \begin{theorem}{\color{blue}{#1}} \ \\}
+    {\end{theorem}
+    \end{mdframed}
+    \vspace{0.5em}
+}
+
+\newenvironment{defn}[1]
+{
+    \vspace{1em}
+    \begin{mdframed}[style=theoremstyle]
+    \begin{definition}{\color{blue}{#1}} \ \\}
+    {\end{definition}
+    \end{mdframed}
+    \vspace{0.5em}
+}
+
+\newenvironment{corol}[1]
+{
+    \vspace{1em}
+    \begin{mdframed}[style=theoremstyle]
+    \begin{corollary}{\color{blue}{#1}} \ \\}
+    {\end{corollary}
+    \end{mdframed}
+    \vspace{0.5em}
+}
+
+\newenvironment{lem}[1]
+{
+    \vspace{1em}
+    \begin{mdframed}[style=theoremstyle]
+    \begin{lemma}{\color{blue}{#1}} \ \\}
+    {\end{lemma}
+    \end{mdframed}
+    \vspace{0.5em}
+}
+
+\newenvironment{prop}[1]
+{
+    \vspace{1em}
+    \begin{mdframed}[style=theoremstyle]
+    \begin{property}{\color{blue}{#1}} \ \\}
+    {\end{property}
+    \end{mdframed}
+    \vspace{0.5em}
+}
+
+\mdfdefinestyle{examplestyle}{
+    linecolor = violet,
+    linewidth = 1.2pt,
+    innertopmargin = 7pt,
+    innerbottommargin = 10pt,
+    backgroundcolor = lightpurple
+}
+
+\newenvironment{ex}[1]
+{
+    \vspace{1em}
+    \begin{mdframed}[style=examplestyle]
+    \begin{example}{\color{violet}{#1}} \ \\}
+    {\end{example}
+    \end{mdframed}
+    \vspace{0.5em}
+}
 
 \newcommand{\hwtitle}[2]{
     \centerline{\large{\textbf{#1}}}
