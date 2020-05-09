@@ -13,6 +13,8 @@
 \usepackage{parskip}
 \usepackage{mdframed}
 \usepackage{xparse}
+\usepackage{mathtools}
+\usepackage{etoolbox}
 \usepackage{marginnote, mparhack, marginfix} % notes in margin
 \usepackage[colorlinks]{hyperref}
 % \usepackage{sansmathfonts}
@@ -24,6 +26,9 @@
 \lhead{\name}
 \rhead{\class}
 \setlength{\parindent}{0pt}
+
+% Set Solutions to Blue 
+\AtBeginEnvironment{proof}{\color{blue}}
 
 % Statistics
 \newcommand{\E}{\mathbb{E}}
@@ -61,15 +66,15 @@
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\half}{\frac{1}{2}}
 \providecommand{\eps}{\varepsilon}
 \providecommand{\inv}{^{-1}}
 \newcommand{\pardiv}[2][]{\frac{\partial{#1}}{\partial{#2}}} % partial derivative
-\newcommand{\hat}{\widehat}
-\newcommand{\bar}{\overline}}
+\renewcommand{\hat}{\widehat}
+\renewcommand{\bar}{\overline}
 \newcommand{\innerprod}[1]{\left\langle {#1} \right \rangle} % inner product
 \newcommand{\paren}[1]{\left({#1}\right)} % nice parentheses
 \newcommand{\abs}[1]{\left| {#1} \right|}
-\renewcommand{\qedsymbol}{$\blacksquare$}
 \newcommand{\lv}{\langle}
 \newcommand{\rv}{\rangle}
 \newcommand{\Aut}{\textrm{Aut}}
@@ -81,8 +86,7 @@
 % Miscellaneous
 \newcommand{\np}{\newpage}
 \newcommand{\noin}{\noindent}
-
-\newcommand{\prob}[1]{\textbf{#1:} \\}
+\newcommand{\prob}[1]{\textbf{#1}}
 \newcommand{\sol}{\textit{Solution} \\}
 
 % Styles 
