@@ -6,26 +6,25 @@
 \usepackage[margin=1in]{geometry}
 \geometry{letterpaper}
 \usepackage{graphicx}
+\usepackage{hyperref}
 \usepackage[dvipsnames]{xcolor}
-\usepackage{fancyhdr}
-\usepackage{changepage}
-\usepackage{lastpage}
+\usepackage{fancyhdr, lastpage}
 \usepackage{parskip}
-\usepackage{mdframed}
-\usepackage{xparse}
-\usepackage{mathtools}
-\usepackage{etoolbox}
+\usepackage{bm}
+\usepackage{comment}
+\usepackage{tabularx} %for nice tables
+\usepackage{hhline}
 \usepackage{marginnote, mparhack, marginfix} % notes in margin
-\usepackage[colorlinks]{hyperref}
-% \usepackage{sansmathfonts}
-% \usepackage{helvet}
-% \renewcommand{\familydefault}{\sfdefault}
-% \usepackage[hidelinks]{hyperref}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{listings}
+\usepackage{natbib}
+\usepackage{setspace}
 
-\pagestyle{fancy}
-\lhead{\name}
-\rhead{\class}
-\setlength{\parindent}{0pt}
+\hypersetup{
+    colorlinks = true,
+    linkcolor = Blue,
+    citecolor = Brown
+}
 
 % Set Solutions to Blue 
 \AtBeginEnvironment{proof}{\color{blue}}
@@ -52,7 +51,6 @@
 \newcommand{\cov}{\operatorname{Cov}}
 \newcommand{\cor}{\operatorname{Corr}}
 \newcommand{\ind}{\perp \!\!\! \perp}
-% \newcommand{\indep}{\raisebox{0.05em}{\rotatebox[origin=c]{90}{$\models$}}}
 
 % Convergence
 \newcommand{\pto}{\overset{p}{\longrightarrow}}
@@ -70,8 +68,8 @@
 \providecommand{\eps}{\varepsilon}
 \providecommand{\inv}{^{-1}}
 \newcommand{\pardiv}[2][]{\frac{\partial{#1}}{\partial{#2}}} % partial derivative
-\renewcommand{\hat}{\widehat}
-\renewcommand{\bar}{\overline}
+% \renewcommand{\hat}{\widehat}
+% \renewcommand{\bar}{\overline}
 \newcommand{\innerprod}[1]{\left\langle {#1} \right \rangle} % inner product
 \newcommand{\paren}[1]{\left({#1}\right)} % nice parentheses
 \newcommand{\abs}[1]{\left| {#1} \right|}
