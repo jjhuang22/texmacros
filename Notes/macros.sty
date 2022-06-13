@@ -1,23 +1,40 @@
 \usepackage{amsmath, amssymb, amsthm, amsfonts}
-\usepackage{enumerate, enumitem}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
 \usepackage{multicol}
 \usepackage{mathrsfs}
 \usepackage[margin=1in]{geometry}
 \geometry{letterpaper}
 \usepackage{graphicx}
 \usepackage[dvipsnames]{xcolor}
-\usepackage{fancyhdr}
-\usepackage{changepage}
-\usepackage{lastpage}
+\usepackage{fancyhdr, lastpage, changepage}
 \usepackage{parskip}
-\usepackage{mdframed}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{comment}
+\usepackage{tabularx} %for nice tables
+\usepackage{hhline}
 \usepackage{xparse}
+\usepackage{mathtools}
+\usepackage{etoolbox}
 \usepackage{marginnote, mparhack, marginfix} % notes in margin
-\usepackage[colorlinks]{hyperref}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{listings}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{minted}
+\usepackage{adjustbox}
 \usepackage{sansmathfonts}
-\usepackage{helvet}
+% \usepackage{hyperref}
+\usepackage[colorlinks]{hyperref}
+% \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
-% \usepackage[hidelinks]{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkcolor = Blue,
+    citecolor = Blue
+}
+
 
 \pagestyle{fancy}
 \lhead{\name}
@@ -44,7 +61,8 @@
 \newcommand{\SD}{\operatorname{SD}}
 \newcommand{\var}{\operatorname{Var}}
 \newcommand{\cov}{\operatorname{Cov}}
-\newcommand{\cor}{\operatorname{Corr}}
+\newcommand{\corr}{\operatorname{Corr}}
+\newcommand{\mle}{\operatorname{MLE}}
 \newcommand{\ind}{\perp \!\!\! \perp}
 % \newcommand{\indep}{\raisebox{0.05em}{\rotatebox[origin=c]{90}{$\models$}}}
 
@@ -63,8 +81,8 @@
 \providecommand{\eps}{\varepsilon}
 \providecommand{\inv}{^{-1}}
 \newcommand{\pardiv}[2][]{\frac{\partial{#1}}{\partial{#2}}} % partial derivative
-\newcommand{\hat}{\widehat}
-\newcommand{\bar}{\overline}}
+\renewcommand{\hat}{\widehat}
+\renewcommand{\bar}{\overline}
 \newcommand{\innerprod}[1]{\left\langle {#1} \right \rangle} % inner product
 \newcommand{\paren}[1]{\left({#1}\right)} % nice parentheses
 \newcommand{\abs}[1]{\left| {#1} \right|}

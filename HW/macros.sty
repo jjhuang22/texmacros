@@ -11,20 +11,36 @@
 \usepackage{fancyhdr, lastpage}
 \usepackage{parskip}
 \usepackage{bm}
+\usepackage{booktabs}
 \usepackage{comment}
+% \usepackage{todonotes}
 \usepackage{tabularx} %for nice tables
 \usepackage{hhline}
+\usepackage{xparse}
+\usepackage{mathtools}
+\usepackage{etoolbox}
 \usepackage{marginnote, mparhack, marginfix} % notes in margin
 \usepackage[framemethod=TikZ]{mdframed}
 \usepackage{listings}
 \usepackage{natbib}
 \usepackage{setspace}
-
+\usepackage{minted}
+\usepackage{adjustbox}
+% \usepackage{sansmathfonts}
+% \usepackage{helvet}
+% \renewcommand{\familydefault}{\sfdefault}
+% \usepackage[hidelinks]{hyperref}
 \hypersetup{
     colorlinks = true,
     linkcolor = Blue,
-    citecolor = Brown
+    citecolor = Blue
 }
+
+\pagestyle{fancy}
+\lhead{\name}
+\rhead{\class}
+\setlength{\parindent}{0pt}
+\setlength{\headheight}{15pt}
 
 % Set Solutions to Blue 
 \AtBeginEnvironment{proof}{\color{blue}}
@@ -51,6 +67,7 @@
 \newcommand{\cov}{\operatorname{Cov}}
 \newcommand{\cor}{\operatorname{Corr}}
 \newcommand{\ind}{\perp \!\!\! \perp}
+% \newcommand{\indep}{\raisebox{0.05em}{\rotatebox[origin=c]{90}{$\models$}}}
 
 % Convergence
 \newcommand{\pto}{\overset{p}{\longrightarrow}}
@@ -84,7 +101,7 @@
 % Miscellaneous
 \newcommand{\np}{\newpage}
 \newcommand{\noin}{\noindent}
-\newcommand{\prob}[1]{\textbf{#1}}
+\newcommand{\prob}[1]{\textbf{Problem #1}}
 \newcommand{\sol}{\textit{Solution} \\}
 
 % Styles 
